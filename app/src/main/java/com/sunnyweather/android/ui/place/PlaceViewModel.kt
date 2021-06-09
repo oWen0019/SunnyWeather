@@ -8,6 +8,9 @@ import com.sunnyweather.android.logic.model.Place
 
 class PlaceViewModel : ViewModel() {
 
+
+
+
     private val searchLiveData = MutableLiveData<String>()
 
     val placeList = ArrayList<Place>()
@@ -19,4 +22,11 @@ class PlaceViewModel : ViewModel() {
     fun searchPlaces(query: String){
         searchLiveData.value = query
     }
+
+    fun savePlace(place: Place) = Repository.savePlace(place)
+
+    fun getSavePlace() = Repository.getSavePlace()
+
+    fun isPlaceSaved() = Repository.isPlaceSaved()
+
 }
